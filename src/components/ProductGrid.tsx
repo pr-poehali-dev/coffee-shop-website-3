@@ -13,70 +13,99 @@ const ProductGrid = ({
   const products = [
     {
       id: 1,
-      name: "Сумка Paris",
-      price: 12900,
-      originalPrice: 15900,
+      name: "Эспрессо классический",
+      price: 150,
       images: [
-        "https://cdn.poehali.dev/files/c460373d-9f90-429e-a12d-e7e999fee0f4.jpg",
+        "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400",
       ],
-      material: "Натуральная кожа",
+      category: "hot-drinks",
+      type: "espresso",
       isNew: false,
-      isSale: true,
+      isSale: false,
     },
     {
       id: 2,
-      name: "Клатч Milano",
-      price: 8500,
+      name: "Капучино с корицей",
+      price: 220,
       images: [
-        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
+        "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400",
       ],
-      material: "Итальянская кожа",
+      category: "hot-drinks",
+      type: "milk-coffee",
       isNew: true,
       isSale: false,
     },
     {
       id: 3,
-      name: "Рюкзак Urban",
-      price: 9800,
+      name: "Латте ванильный",
+      price: 250,
       images: [
-        "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400",
+        "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400",
       ],
-      material: "Эко-кожа",
+      category: "hot-drinks",
+      type: "milk-coffee",
       isNew: false,
       isSale: false,
     },
     {
       id: 4,
-      name: "Сумка Elegance",
-      price: 16500,
-      originalPrice: 19900,
+      name: "Бабл кофе",
+      price: 280,
+      originalPrice: 320,
       images: [
-        "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400",
+        "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=400",
       ],
-      material: "Натуральная кожа",
+      category: "cold-drinks",
+      type: "specialty",
       isNew: false,
       isSale: true,
     },
     {
       id: 5,
-      name: "Сумка Casual",
-      price: 7200,
+      name: "Айс кофе мятный",
+      price: 230,
       images: [
-        "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=400",
+        "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=400",
       ],
-      material: "Замша",
+      category: "cold-drinks",
+      type: "ice-coffee",
       isNew: true,
       isSale: false,
     },
     {
       id: 6,
-      name: "Деловая сумка Executive",
-      price: 22900,
+      name: "Раф кофе карамельный",
+      price: 270,
       images: [
-        "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=400",
+        "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=400",
       ],
-      material: "Премиум кожа",
+      category: "hot-drinks",
+      type: "specialty",
       isNew: false,
+      isSale: false,
+    },
+    {
+      id: 7,
+      name: "Зерновой кофе Эфиопия",
+      price: 1200,
+      images: [
+        "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400",
+      ],
+      category: "beans",
+      type: "single-origin",
+      isNew: false,
+      isSale: false,
+    },
+    {
+      id: 8,
+      name: "Темпер для эспрессо",
+      price: 3500,
+      images: [
+        "https://images.unsplash.com/photo-1504627298434-2119005e7c5c?w=400",
+      ],
+      category: "accessories",
+      type: "tools",
+      isNew: true,
       isSale: false,
     },
   ];
@@ -92,9 +121,10 @@ const ProductGrid = ({
             className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
           >
             <option value="all">Все категории</option>
-            <option value="handbags">Сумки</option>
-            <option value="clutch">Клатчи</option>
-            <option value="backpack">Рюкзаки</option>
+            <option value="hot-drinks">Горячие напитки</option>
+            <option value="cold-drinks">Холодные напитки</option>
+            <option value="beans">Зерновой кофе</option>
+            <option value="accessories">Аксессуары</option>
           </select>
 
           <select
@@ -114,7 +144,7 @@ const ProductGrid = ({
             Показано: {products.length} товаров
           </span>
           <div className="flex gap-2 ml-4">
-            <button className="p-2 bg-red-600 text-white rounded">
+            <button className="p-2 bg-amber-600 text-white rounded">
               <Icon name="Grid3X3" size={16} />
             </button>
             <button className="p-2 bg-gray-200 text-gray-600 rounded hover:bg-gray-300">

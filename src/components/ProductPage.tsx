@@ -13,27 +13,26 @@ const ProductPage = ({ productId, onBack }: ProductPageProps) => {
 
   const product = {
     id: productId,
-    name: "Сумка Paris",
-    price: 12900,
-    originalPrice: 15900,
+    name: "Эспрессо классический",
+    price: 150,
     images: [
-      "https://cdn.poehali.dev/files/c460373d-9f90-429e-a12d-e7e999fee0f4.jpg",
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600",
-      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600",
+      "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600",
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600",
+      "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600",
     ],
-    material: "Натуральная кожа",
-    sizes: "30 × 25 × 12 см",
-    weight: "0,8 кг",
-    warranty: "12 месяцев",
+    category: "Горячие напитки",
+    volume: "30 мл",
+    strength: "★★★★★",
+    temperature: "70-80°C",
     inStock: true,
     description:
-      "Элегантная сумка из натуральной кожи высокого качества. Идеально подходит для деловых встреч и повседневного использования.",
-    care: [
-      "Избегайте контакта с водой и агрессивными жидкостями",
-      "Храните в защитном чехле вдали от прямых солнечных лучей",
-      "Для чистки используйте специальные средства для кожи",
-      "При загрязнении протирайте мягкой тканью",
-      "Не перегружайте сумку тяжёлыми предметами",
+      "Классический итальянский эспрессо из отборных зёрен арабики. Насыщенный вкус с нотками шоколада и карамели.",
+    ingredients: [
+      "100% арабика высокогорная",
+      "Обжарка средняя",
+      "Помол тонкий",
+      "Давление 9 бар",
+      "Время экстракции 25-30 секунд",
     ],
   };
 
@@ -42,7 +41,7 @@ const ProductPage = ({ productId, onBack }: ProductPageProps) => {
       {/* Навигация назад */}
       <button
         onClick={onBack}
-        className="flex items-center gap-2 text-gray-600 hover:text-red-600 mb-6 transition-colors"
+        className="flex items-center gap-2 text-coffee-600 hover:text-amber-600 mb-6 transition-colors"
       >
         <Icon name="ArrowLeft" size={20} />
         Назад к каталогу
@@ -81,12 +80,12 @@ const ProductPage = ({ productId, onBack }: ProductPageProps) => {
         {/* Информация о товаре */}
         <div className="space-y-6">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-4 font-montserrat">
+            <h1 className="text-3xl font-bold text-coffee-900 mb-4 font-montserrat">
               {product.name}
             </h1>
 
             <div className="flex items-center gap-4 mb-4">
-              <span className="text-3xl font-bold text-gray-900">
+              <span className="text-3xl font-bold text-coffee-900">
                 {product.price.toLocaleString("ru-RU")} ₽
               </span>
               {product.originalPrice && (
@@ -95,7 +94,7 @@ const ProductPage = ({ productId, onBack }: ProductPageProps) => {
                 </span>
               )}
               {product.originalPrice && (
-                <span className="bg-red-100 text-red-600 px-2 py-1 rounded text-sm font-semibold">
+                <span className="bg-amber-100 text-amber-600 px-2 py-1 rounded text-sm font-semibold">
                   Скидка{" "}
                   {Math.round(
                     (1 - product.price / product.originalPrice) * 100,
@@ -134,7 +133,7 @@ const ProductPage = ({ productId, onBack }: ProductPageProps) => {
             </div>
 
             <div className="flex gap-4">
-              <button className="flex-1 bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-700 transition-colors">
+              <button className="flex-1 bg-amber-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-amber-700 transition-colors">
                 Добавить в корзину
               </button>
               <button className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50">
@@ -165,7 +164,7 @@ const ProductPage = ({ productId, onBack }: ProductPageProps) => {
               onClick={() => setActiveTab("specs")}
               className={`py-4 px-1 border-b-2 font-medium text-sm ${
                 activeTab === "specs"
-                  ? "border-red-600 text-red-600"
+                  ? "border-amber-600 text-amber-600"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
               }`}
             >
@@ -175,17 +174,17 @@ const ProductPage = ({ productId, onBack }: ProductPageProps) => {
               onClick={() => setActiveTab("care")}
               className={`py-4 px-1 border-b-2 font-medium text-sm ${
                 activeTab === "care"
-                  ? "border-red-600 text-red-600"
+                  ? "border-amber-600 text-amber-600"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
               }`}
             >
-              Уход
+              Состав
             </button>
             <button
               onClick={() => setActiveTab("reviews")}
               className={`py-4 px-1 border-b-2 font-medium text-sm ${
                 activeTab === "reviews"
-                  ? "border-red-600 text-red-600"
+                  ? "border-amber-600 text-amber-600"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
               }`}
             >
@@ -198,25 +197,27 @@ const ProductPage = ({ productId, onBack }: ProductPageProps) => {
           {activeTab === "specs" && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-4">
+                <h3 className="font-semibold text-coffee-900 mb-4">
                   Основные характеристики
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Материал</span>
-                    <span className="text-gray-900">{product.material}</span>
+                    <span className="text-gray-600">Категория</span>
+                    <span className="text-coffee-900">{product.category}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Размеры</span>
-                    <span className="text-gray-900">{product.sizes}</span>
+                    <span className="text-gray-600">Объём</span>
+                    <span className="text-coffee-900">{product.volume}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Вес</span>
-                    <span className="text-gray-900">{product.weight}</span>
+                    <span className="text-gray-600">Крепость</span>
+                    <span className="text-coffee-900">{product.strength}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Гарантия</span>
-                    <span className="text-gray-900">{product.warranty}</span>
+                    <span className="text-gray-600">Температура</span>
+                    <span className="text-coffee-900">
+                      {product.temperature}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -225,14 +226,14 @@ const ProductPage = ({ productId, onBack }: ProductPageProps) => {
 
           {activeTab === "care" && (
             <div>
-              <h3 className="font-semibold text-gray-900 mb-4">Уход</h3>
+              <h3 className="font-semibold text-coffee-900 mb-4">Состав</h3>
               <ul className="space-y-2">
-                {product.care.map((item, index) => (
+                {product.ingredients.map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <Icon
                       name="Check"
                       size={16}
-                      className="text-green-600 mt-0.5 flex-shrink-0"
+                      className="text-amber-600 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700">{item}</span>
                   </li>
@@ -243,7 +244,7 @@ const ProductPage = ({ productId, onBack }: ProductPageProps) => {
 
           {activeTab === "reviews" && (
             <div>
-              <h3 className="font-semibold text-gray-900 mb-4">
+              <h3 className="font-semibold text-coffee-900 mb-4">
                 Отзывы покупателей
               </h3>
               <div className="space-y-6">

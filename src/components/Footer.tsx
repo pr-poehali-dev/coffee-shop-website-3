@@ -6,51 +6,52 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-xl font-bold font-montserrat">FASHION BAGS</h3>
+            <h3 className="text-xl font-bold font-montserrat">
+              COOFFEE GRINDER
+            </h3>
             <p className="text-gray-400 leading-relaxed">
-              Премиальные сумки из натуральной кожи. Качество, проверенное
-              временем.
+              Премиальный кофе и напитки. Каждая чашка — произведение искусства.
             </p>
             <div className="flex space-x-4">
               <Icon
                 name="Instagram"
-                className="hover:text-red-400 cursor-pointer transition-colors"
+                className="hover:text-amber-400 cursor-pointer transition-colors"
                 size={20}
               />
               <Icon
                 name="Facebook"
-                className="hover:text-red-400 cursor-pointer transition-colors"
+                className="hover:text-amber-400 cursor-pointer transition-colors"
                 size={20}
               />
               <Icon
                 name="Twitter"
-                className="hover:text-red-400 cursor-pointer transition-colors"
+                className="hover:text-amber-400 cursor-pointer transition-colors"
                 size={20}
               />
             </div>
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-semibold">Каталог</h4>
+            <h4 className="font-semibold">Меню</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  Женские сумки
+                  Горячие напитки
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  Мужские сумки
+                  Холодные напитки
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  Клатчи
+                  Зерновой кофе
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  Рюкзаки
+                  Аксессуары
                 </a>
               </li>
             </ul>
@@ -61,22 +62,22 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-400">
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  О компании
+                  О кофейне
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  Доставка
+                  Сертификаты
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  Возврат
+                  FAQ
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  Гарантия
+                  Франшиза
                 </a>
               </li>
             </ul>
@@ -102,7 +103,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 Fashion Bags. Все права защищены.</p>
+          <p>&copy; 2024 Coffee Grinder. Все права защищены.</p>
         </div>
       </div>
     </footer>

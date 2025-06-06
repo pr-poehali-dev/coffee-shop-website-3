@@ -6,7 +6,8 @@ interface ProductCardProps {
   price: number;
   originalPrice?: number;
   images: string[];
-  material: string;
+  category: string;
+  type: string;
   isNew?: boolean;
   isSale?: boolean;
   onClick: () => void;
@@ -17,7 +18,8 @@ const ProductCard = ({
   price,
   originalPrice,
   images,
-  material,
+  category,
+  type,
   isNew,
   isSale,
   onClick,
@@ -55,14 +57,14 @@ const ProductCard = ({
       </div>
 
       <div className="p-4">
-        <h3 className="font-semibold text-gray-900 mb-2 font-montserrat">
+        <h3 className="font-semibold text-coffee-900 mb-2 font-montserrat">
           {name}
         </h3>
-        <p className="text-sm text-gray-600 mb-3">{material}</p>
+        <p className="text-sm text-coffee-600 mb-3">{type}</p>
 
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-lg font-bold text-gray-900">
+            <span className="text-lg font-bold text-coffee-900">
               {price.toLocaleString("ru-RU")} ₽
             </span>
             {originalPrice && (
@@ -72,7 +74,7 @@ const ProductCard = ({
             )}
           </div>
 
-          <button className="bg-red-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-red-700 transition-colors opacity-0 group-hover:opacity-100">
+          <button className="bg-amber-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-amber-700 transition-colors opacity-0 group-hover:opacity-100">
             В корзину
           </button>
         </div>
